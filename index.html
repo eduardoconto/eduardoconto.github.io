@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Eduardo de Conto — Under Construction</title>
+  <meta name="description" content="This site is under construction. Eduardo Conto's personal site will be back soon.">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#06b6d4;--muted:#94a3b8;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#071027 0%,#071b2a 100%);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:#e6eef6;min-height:100vh;display:flex;align-items:center;justify-content:center}
+    .card{width:clamp(300px,60vw,800px);background:radial-gradient(ellipse at top left, rgba(6,182,212,0.06), transparent 25%),var(--card);padding:34px;border-radius:16px;box-shadow:0 8px 30px rgba(2,6,23,0.6);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.03);display:grid;grid-template-columns:1fr 220px;gap:24px;align-items:center}
+    @media (max-width:720px){.card{grid-template-columns:1fr;padding:24px}.right{display:none}}
+    h1{margin:0;font-size:1.6rem;letter-spacing:-0.5px}
+    p{margin:12px 0;color:var(--muted)}
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo .mark{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#021226}
+    .meta{font-size:0.9rem}
+    .actions{margin-top:16px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.04);color:inherit;text-decoration:none;font-weight:600}
+    .right{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+    .spinner{width:120px;height:120px;border-radius:999px;background:conic-gradient(var(--accent),transparent 40%);display:grid;place-items:center;position:relative}
+    .spinner::after{content:"";position:absolute;inset:14px;border-radius:999px;background:linear-gradient(180deg,rgba(2,6,23,0.6),rgba(2,6,23,0.8));}
+    .spinner .inner{position:relative;z-index:2;color:var(--muted);font-weight:700}
+    footer{margin-top:14px;color:var(--muted);font-size:0.85rem}
+    .social{display:flex;gap:10px;margin-top:8px}
+    .social a{color:var(--muted);text-decoration:none;border-radius:8px;padding:6px}
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <section>
+      <div class="logo" aria-hidden="true">
+        <div class="mark">EC</div>
+        <div>
+          <h1>Eduardo de Conto</h1>
+          <div class="meta">Personal website — Under construction</div>
+        </div>
+      </div>
+      <p>Thanks for stopping by. I'm working on a personal site.</p>
+      <div class="actions">
+        <form id="notify" onsubmit="event.preventDefault();submitted()">
+          <input id="email" type="email" placeholder="your@email.com" aria-label="email" required style="padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;width:100%;max-width:360px">
+          <div style="height:12px"></div>
+          <button class="btn" type="submit">Notify me</button>
+        </form>
+        <footer>Or reach me at <a href="mailto:hello@eduardoconto.com" style="color:var(--accent);text-decoration:none">hello@eduardoconto.com</a></footer>
+        <div class="social" aria-hidden="true">
+          <a href="https://github.com/eduardoconto" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://twitter.com/eduardoconto" target="_blank" rel="noopener">Twitter</a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="right" aria-hidden="true">
+      <div class="spinner" role="img" aria-label="Loading">
+        <div class="inner">Under<br>Construction</div>
+      </div>
+      <div style="text-align:center;color:var(--muted)">
+        <strong>ETA:</strong>
+        <div id="count" style="font-weight:700;margin-top:6px">coming soon</div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    function submitted(){
+      const btn = document.querySelector('.btn');
+      btn.textContent = 'Thanks!';
+      btn.disabled = true;
+      // In a real site you'd POST to a signup endpoint here.
+    }
+  </script>
+</body>
+</html>
